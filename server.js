@@ -3,7 +3,13 @@ const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
-app.use('/', require('./routes/main'));
+
+app.get('/', function(req, res) {
+    res.send('HOME ROUTE')
+});
+
+app.use('/results', require('./routes/results'));
+
 
 
 app.listen(3000, function(){
